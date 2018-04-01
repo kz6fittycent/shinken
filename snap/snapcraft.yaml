@@ -1,4 +1,4 @@
-name: shinken # check to see if it's available
+name: shinken-kz6fittycent # check to see if it's available
 version: '2.4.3.0+git' # check versioning
 summary: Flexible. Strongly flexible. # 79 char long summary
 description: |
@@ -19,6 +19,7 @@ parts:
     source: https://github.com/kz6fittycent/shinken
     source-type: git
     plugin: python
+    requirements: requirements.txt
     
     build-packages:
       - python
