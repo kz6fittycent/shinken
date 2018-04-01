@@ -133,7 +133,7 @@ def get_gid(group_name):
 # Do a chmod -R +x
 def _chmodplusx(d):
     if not os.path.exists(d):
-        print "warn: _chmodplusx missing dir", d
+        print ("warn: _chmodplusx missing dir", d)
         return
     if os.path.isdir(d):
         for item in os.listdir(d):
@@ -164,7 +164,7 @@ old_error = parser.error
 
 
 def _error(msg):
-    print 'Parser error', msg
+    print ('Parser error', msg)
 
 
 parser.error = _error
@@ -188,12 +188,12 @@ try:
     import shinken
     
     is_update = True
-    print "Previous Shinken lib detected (%s)" % shinken.__file__
+    print ("Previous Shinken lib detected (%s)" % shinken.__file__)
 except ImportError:
     pass
 
 if '--update' in args or opts.upgrade or '--upgrade' in args:
-    print "Shinken Lib Updating process only"
+    print ("Shinken Lib Updating process only")
     if 'update' in args:
         sys.argv.remove('update')
         sys.argv.insert(1, 'install')
@@ -202,7 +202,7 @@ if '--update' in args or opts.upgrade or '--upgrade' in args:
     if '--upgrade' in args:
         sys.argv.remove('--upgrade')
     
-    print "Shinken Lib Updating process only"
+    print ("Shinken Lib Updating process only")
     is_update = True
 
 is_install = False
@@ -227,7 +227,7 @@ if is_install and not root and not is_update and pwd and not opts.skip_build:
     gid = get_gid(group)
     
     if uid is None or gid is None:
-        print "Error: the user/group %s/%s is unknown. Please create it first 'useradd %s'" % (user, group, user)
+        print ("Error: the user/group %s/%s is unknown. Please create it first 'useradd %s'" % (user, group, user))
         sys.exit(2)
 
 # setup() will warn about unknown parameter we already managed
@@ -239,7 +239,7 @@ for a in deleting_args:
     for av in sys.argv:
         if av.startswith(a):
             idx = sys.argv.index(av)
-            print "AV,", av, "IDX", idx
+            print ("AV,", av, "IDX", idx)
             to_del.append(idx)
             # We can have --owner=shinken or --owner shinken, if so del also the
             # next one
@@ -470,11 +470,11 @@ if pwd and not root and is_install:
 try:
     import pycurl
 except ImportError:
-    print "Warning: missing python-pycurl lib, you MUST install it before launch the shinken daemons"
+    print ("Warning: missing python-pycurl lib, you MUST install it before launch the shinken daemons")
 
 try:
     import cherrypy
 except ImportError:
-    print "Notice: for better performances for the daemons communication, you should install the python-cherrypy3 lib"
+    print ("Notice: for better performances for the daemons communication, you should install the python-cherrypy3 lib")
 
-print "Shinken setup done"
+print ("Shinken setup done")
