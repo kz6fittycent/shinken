@@ -20,7 +20,7 @@ parts:
     source-type: git
     plugin: python
     python-version: python2
-    requirements: requirements.txt
+    #requirements: requirements.txt
     
     build-packages:
       - python
