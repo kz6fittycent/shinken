@@ -119,14 +119,14 @@ def recursive_chown(path, uid, gid, owner, group):
 def get_uid(user_name):
     try:
         return pwd.getpwnam(user_name)[2]
-    except KeyError, exp:
+    except KeyError as exp:
         return None
 
 
 def get_gid(group_name):
     try:
         return grp.getgrnam(group_name)[2]
-    except KeyError, exp:
+    except KeyError as exp:
         return None
 
 
