@@ -19,10 +19,11 @@ parts:
     source: https://github.com/kz6fittycent/shinken
     source-type: git
     plugin: python
+    python-version: python2
     requirements: requirements.txt
     
     build-packages:
-      - python
+      - python2
       
     stage-packages:
-      - python
+      - python2
