@@ -23,7 +23,7 @@ parts:
     requirements: requirements.txt
     
     build-packages:
-      - python2
+      - python
       
     stage-packages:
-      - python2
+      - python
