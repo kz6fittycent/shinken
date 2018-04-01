@@ -1,0 +1,27 @@
+name: shinken # check to see if it's available
+version: '2.4.3.0+git' # check versioning
+summary: Flexible. Strongly flexible. # 79 char long summary
+description: |
+  Shinken is a monitoring framework. It's a Python Nagios® Core total rewrite enhancing flexibility and large environment management.
+grade: stable # must be 'stable' to release into candidate/stable channels
+confinement: strict # use 'strict' once you have the right plugs
+
+apps:
+  shinken:
+    command: shinken
+    plugs:
+      - home
+      - network
+      - network-bind
+     
+parts: 
+  my-part:
+    source: https://github.com/kz6fittycent/shinken
+    source-type: git
+    plugin: python3
+    
+    build-packages:
+      - python3
+      
+    stage-packages:
+      - python3
