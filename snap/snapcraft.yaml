@@ -20,10 +20,18 @@ parts:
     source-type: git
     plugin: python
     python-version: python2
-    #requirements: requirements.txt
+    requirements: requirements.txt
     
     build-packages:
       - python
+      - python-pycurl
+      - python-setuptools
+      - python-cherrypy3
+      - monitoring-plugins
       
     stage-packages:
       - python
+      - python-pycurl
+      - python-setuptools
+      - python-cherrypy3
+      - monitoring-plugins
